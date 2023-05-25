@@ -1,6 +1,6 @@
 <img src="https://i.imgur.com/QgojyYY.png" width="400">
 
-# Project 2<br>Node/Express/MongoDB<br>Full-stack CRUD Application
+# Project 2<br>Node/Express/MongoDB<br>Full-stack Application
 
 ## Overview
 
@@ -21,8 +21,6 @@ You get to decide what you want to build - as long as it meets the technical req
     ☐ **A Clear Plan of Attack for your project** - How you go about this is up to you, but we should be confident in your plan atfer reviewing your Trello board.
 
     ☐ A **Wireframes** list containing wireframes for the app's main pages of functionality, e.g. Landing Page, Posts Index Page, Favorite Posts Page, Add Post Page, etc.
-    
-    ☐ An **ERD** list containing an ERD identifying the attributes of each Data Entity (one for each Model and embedded schema). The ERD also needs to diagram relationships between the Entities (1:1, 1:M or M:M). Here's a [YouTube video to show you how](https://www.youtube.com/watch?v=QpdhBUYk7Kk).
 
 - **A ``README.md`` file** - Don't underestimate the value of a well crafted `README.md`. The `README.md` introduces your project to prospective employers and forms their first impression of your work!
 
@@ -34,9 +32,10 @@ You get to decide what you want to build - as long as it meets the technical req
 
 ☐ **Use OAuth authentication**.
 
-☐ Implement basic **authorization** that restricts access to features that need a logged in user in order to work (typically CUD data operations) by "protecting" those routes from anonymous users using the `ensureLoggedIn` middleware from the OAuth lesson.  In addition, ensure that editing and deletion of a data resource can only be done by the user that created that data (this is done in the controller - refer to the Guide to User-Centric CRUD).
+☐ Implement basic **authorization** that restricts access to features that need a logged in user in order to work (typically CRD data operations) by "protecting" those routes from anonymous users using the `ensureLoggedIn` middleware from the OAuth lesson.  In addition, ensure that editing and deletion of a data resource can only be done by the user that created that data (this is done in the controller - refer to the Guide to User-Centric CRD).
 
-☐ Have **full-CRUD data operations** somewhere within the app's features. For example, you can have functionality that **C**reates & **U**pdates a _post_ and satisfy **D**elete functionality by implementing the ability to delete _comments_.
+☐ Have **CRD data operations** somewhere within the app's features. For example, you can have functionality that **C**reates a _post_ and satisfy **D**elete functionality by implementing the ability to delete _comments_.
+    - That's CREATE, READ, and DELETE. UPDATE is optional.
 
 ☐ Be styled such that the app looks and feels similar to apps we use on a daily basis - in other words, **it should have a consistent and polished user interface.**
 
@@ -71,7 +70,7 @@ You get to decide what you want to build - as long as it meets the technical req
 
 Lots of the web applications you interact with on a daily basis can provide inspiration for this project as most are full-stack CRUD apps.  That is, they manipulate and display data.
 
-#### DO NOT Choose Non-CRUD Applications Such As:
+#### DO NOT Choose Non-CRD Applications Such As:
 
 - Games
 - Portfolio, or presentational pages
