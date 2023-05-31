@@ -18,6 +18,9 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res) => {
   res.render('index')
 })
+
+app.use('/', require('./server/routes/contact'))
+
 app.listen(port, () => {
   console.log(`App listeing on port ${port}`)
 })
