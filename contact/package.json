@@ -17,7 +17,8 @@
     "express-ejs-layouts": "^2.5.1",
     "express-flash-messages": "^0.1.1",
     "express-session": "^1.17.3",
-    "method-override": "^3.0.0"
+    "method-override": "^3.0.0",
+    "mongoose": "^7.2.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"

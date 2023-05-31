@@ -2,9 +2,12 @@ require('dotenv').config()
 
 const express = require('express')
 const expressLayout = require('express-ejs-layouts')
+const connectDB = require('./server/config/database')
 
 const app = express()
 const port = 3000 || process.abort.env.PORT
+
+connectDB()
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
