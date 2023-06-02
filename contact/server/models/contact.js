@@ -18,6 +18,10 @@ const ContactSchema = new Schema({
     type: String,
     required: true
   },
+  notes: {
+    type: String,
+    required: true
+  },
 
   createdAt: {
     type: Date,

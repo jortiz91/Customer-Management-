@@ -37,3 +37,54 @@ exports.postContact = async (req, res) => {
     console.log(error)
   }
 }
+
+exports.view = async (req, res) => {
+  try {
+    const contact = await Contact.findOne({ _id: req.params.id })
+
+    const locals = {
+      title: 'View Contact Info',
+      description: 'Contact List'
+    }
+    res.render('contact/view', {
+      locals,
+      contact
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+exports.edit = async (req, res) => {
+  try {
+    const contact = await Contact.findOne({ _id: req.params.id })
+
+    const locals = {
+      title: 'Edit Contact Info',
+      description: 'Contact List'
+    }
+    res.render('contact/edit', {
+      locals,
+      contact
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+exports.editPost = async (req, res) => {
+  try {
+    await Contact.findByIdAndUpdate(req.params.id, {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      tel: req.body.tel,
+      email: req.body.email,
+      notes: req.body.notes
+    })
+    await res.redirect(`/edit/${req.params.id}`)
+
+    console.log('redirected')
+  } catch (error) {
+    console.log(error)
+  }
+}
