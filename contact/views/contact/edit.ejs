@@ -25,40 +25,42 @@
 </div>
 
 
-<form action="/edit/ <%= contact._id %>?_method=PUT" method="POST">
+<form action="/edit/<%= contact._id %>?_method=PUT" method="POST">
+  
 
   <div class="row form-group mb-4">
     <div class="col">
       <label for="firstName">First Name</label>
-      <input type="text" class="form-control" id="firstName" name="firstName" value="" placeholder="First Name" required>
+      <input type="text" class="form-control" id="firstName" name="firstName" value="<%= contact.firstName %>" placeholder="First Name" required>
     </div>
 
     <div class="col">
       <label for="lastName">Last Name</label>
-      <input type="text" class="form-control" id="lastName" name="lastName" value="" placeholder="Last Name" required>
+      <input type="text" class="form-control" id="lastName" name="lastName"  value="<%= contact.lastName %>" placeholder="Last Name" required>
     </div>
   </div>
 
   <div class="row form-group mb-4">
     <div class="col">
       <label for="tel">Telephone</label>
-      <input type="text" class="form-control" id="tel" name="tel" value="" placeholder="Telephone" required>
+      <input type="text" class="form-control" id="tel" name="tel" value="<%= contact.tel %>" placeholder="Telephone" required>
     </div>
 
     <div class="col">
       <label for="email">Email</label>
-      <input type="text" class="form-control" id="email" name="email" value="" placeholder="Email" required>
+      <input type="text" class="form-control" id="email" name="email" value="<%= contact.email %>" placeholder="Email" required>
     </div>
   </div>
 
 
   <div class="form-group mb-4">
       <label for="notes">Notes</label>
-      <textarea class="form-control" name="notes" id="notes" cols="30" rows="12" placeholder="Contact Notes"></textarea>
+      <textarea class="form-control" name="notes" id="notes" cols="30" rows="12" placeholder="Contact Notes"><%= contact.notes %></textarea>
   </div>
 
   <div class="form-group mb-4">
     <button type="submit" class="btn btn-primary">Update Contact</button>
+    <button type="submit" class="btn btn-primary">Delete Contact</button>
   </div>
 
   

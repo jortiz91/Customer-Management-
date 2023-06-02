@@ -9,6 +9,18 @@ exports.homepage = async (req, res) => {
 
   res.render('index', locals)
 }
+exports.about = async (req, res) => {
+  const locals = {
+    title: 'About',
+    description: 'Free NodeJs User Management System'
+  }
+
+  try {
+    res.render('about', locals)
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 exports.addContact = async (req, res) => {
   const locals = {
