@@ -100,3 +100,12 @@ exports.editPost = async (req, res) => {
     console.log(error)
   }
 }
+
+exports.deleteContact = async (req, res) => {
+  try {
+    await Contact.deleteOne({ _id: req.params.id })
+    res.redirect('/')
+  } catch (error) {
+    console.log(error)
+  }
+}
