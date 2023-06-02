@@ -20,13 +20,14 @@ exports.addContact = async (req, res) => {
 }
 
 exports.postContact = async (req, res) => {
-  const newContact = new Contact({
+  console.log(req.body)
+  const newContact = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     notes: req.body.notes,
     tel: req.body.tel,
     email: req.body.email
-  })
+  }
 
   try {
     await Contact.create(newContact)

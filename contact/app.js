@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const expressLayout = require('express-ejs-layouts')
 const connectDB = require('./server/config/database')
+const Contact = require('./server/models/contact')
 
 const app = express()
 const port = 3000 || process.abort.env.PORT
@@ -19,7 +20,15 @@ app.set('layout', './layouts/main')
 app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-  res.render('index')
+  Contact.find({})
+    .exec()
+    .then((contacts) => {
+      res.render('index', { contact: contacts })
+    })
+    .catch((err) => {
+      console.error(err)
+      res.render('error')
+    })
 })
 
 app.use('/', require('./server/routes/contact'))
