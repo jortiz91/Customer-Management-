@@ -2,13 +2,21 @@ const Contact = require('../models/contact')
 const mongoose = require('mongoose')
 
 exports.homepage = async (req, res) => {
-  const locals = {
-    title: 'About',
-    description: 'Contact List'
+  try {
+    const contacts = await Contact.find({})
+    const locals = {
+      title: 'About',
+      description: 'Contact List',
+      contact: contacts,
+      user: req.user // Assuming the user information is stored in the req.user object
+    }
+    res.render('index', locals)
+  } catch (error) {
+    console.error(error)
+    res.render('error')
   }
-
-  res.render('index', locals)
 }
+
 exports.about = async (req, res) => {
   const locals = {
     title: 'About',

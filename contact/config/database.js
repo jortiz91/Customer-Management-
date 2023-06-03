@@ -1,5 +1,3 @@
-
-
 const mongoose = require('mongoose')
 mongoose.set('strictQuery', false)
 const connectDB = async () => {
@@ -12,3 +10,7 @@ const connectDB = async () => {
 }
 
 module.exports = connectDB
+
+//resources: https://getbootstrap.com/docs/5.3/examples/dashboard//
+//https://getbootstrap.com/docs/3.4/css//
+//I modified the layout completely and CSS

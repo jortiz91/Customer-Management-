@@ -1,4 +1,9 @@
 require('dotenv').config()
+require('./config/database')
+// new code below
+require('./config/passport')
+
+const contactRoutes = require('./routes/contact')
 
 const express = require('express')
 const expressLayout = require('express-ejs-layouts')
@@ -31,6 +36,12 @@ app.use(
 // app.use(session({... code above
 app.use(passport.initialize())
 app.use(passport.session())
+// Add this middleware BELOW passport middleware
+app.use(function (req, res, next) {
+  res.locals.user = req.user
+  next()
+})
+
 app.use(expressLayout)
 app.set('layout', './layouts/main')
 app.set('view engine', 'ejs')
@@ -46,6 +57,8 @@ app.get('/', (req, res) => {
       res.render('error')
     })
 })
+
+app.use('/contacts', contactRoutes)
 
 app.use('/', require('./routes/contact'))
 
