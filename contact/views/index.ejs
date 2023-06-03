@@ -8,6 +8,8 @@
     </div>
     <% if (user) { %>
       <a href="/logout" class="btn btn-sm btn-outline-secondary">LOG OUT</a>
+    <% } else { %>
+      <a href="/auth/google" class="btn btn-sm btn-outline-secondary">LOG IN</a>
     <% } %>
   </div>
 

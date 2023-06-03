@@ -1,7 +1,6 @@
 body {
   background-color: lightgrey;
   font-size: 14px;
-
 }
 
 .feather {
@@ -53,7 +52,6 @@ body {
 
 .sidebar-heading {
   font-size: .75rem;
-  
 }
 
 .navbar-brand {
@@ -91,14 +89,12 @@ body {
 .cursive-font {
   font-family: cursive;
   font-size: 20px;
-  text-decoration: underline
+  text-decoration: underline;
 }
 
-.h2{
+.h2 {
   color: #007bff;
-
 }
-
 
 .login {
   display: flex;
@@ -109,4 +105,26 @@ body {
 
 .login img {
   height: 30px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+.container {
+  margin-left: 0;
+  margin-right: 15px; 
 }

@@ -2,30 +2,27 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 const contactController = require('../controllers/contactController')
+const { ensureAuthenticated } = require('../middlewares/auth')
 
 router.get('/', contactController.homepage)
 router.get('/about', contactController.about)
-router.get('/add', contactController.addContact)
-router.post('/add', contactController.postContact)
+
+// Add Contact Route (Restricted to authenticated users)
+router.get('/add', ensureAuthenticated, contactController.addContact)
+router.post('/add', ensureAuthenticated, contactController.postContact)
+
 router.get('/view/:id', contactController.view)
 
-router.get('/edit/:id', contactController.edit)
-router.put('/edit/:id', contactController.editPost)
-router.delete('/edit/:id', contactController.deleteContact)
+router.get('/edit/:id', ensureAuthenticated, contactController.edit)
+router.put('/edit/:id', ensureAuthenticated, contactController.editPost)
+router.delete('/edit/:id', ensureAuthenticated, contactController.deleteContact)
 
 // Google OAuth login route
 router.get(
   '/auth/google',
-  passport.authenticate(
-    // Which passport strategy is being used?
-    'google',
-    {
-      // Requesting the user's profile and email
-      scope: ['profile', 'email']
-      // Optionally force pick account every time
-      // prompt: "select_account"
-    }
-  )
+  passport.authenticate('google', {
+    scope: ['profile', 'email']
+  })
 )
 
 // Google OAuth callback route
@@ -36,8 +33,8 @@ router.get(
     failureRedirect: '/contacts'
   })
 )
-// OAuth logout route
 
+// OAuth logout route
 router.get('/logout', function (req, res) {
   req.logout(function (err) {
     if (err) {
